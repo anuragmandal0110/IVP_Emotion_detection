@@ -136,11 +136,9 @@ while True:
 
             cv2.putText(frame, f'Person {name} :- {emotion}', (x, y-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
 
-            if(index % 25 == 0 and index > 60):
-                future_emo =  random.choice(future_emotion)
-            
-            if(future_emo != ""):
-                cv2.putText(frame, f'Future Emotion :- {random.choice(future_emotion)} ', (x, y + h + 60), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (255,36,12), 2)
+
+ 
+            #TODO Use LSTM to detect future emotions here. Replace the MHM with LSTM.
 
             index += 1
             emotions.append(emotion_in_frame)
