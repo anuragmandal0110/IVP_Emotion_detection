@@ -11,8 +11,9 @@ from model import get_model
 from PIL import Image
 import numpy as np
 import face_recognition
-import random 
 
+# Uncomment this line to import requests and make calls to media pipe server for fetching the pose details.
+#import request
 
 # emotions time frame data
 emotions = []
@@ -68,26 +69,12 @@ while True:
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = faceCascade.detectMultiScale(gray, 1.3, 5)
-        # get the encodings of all faces in the image
-        # list_of_face_encodings = face_recognition.face_encodings(frame)
-        # if(len(face_encodings) == 0):
-        #     face_encodings = list_of_face_encodings
-
-        # name = ""
-        # for faceencodings in list_of_face_encodings :
 
 
-        #     matches = face_recognition.compare_faces(face_encodings, faceencodings)
-        #     #name = -1
+        # Uncomment to fetch the human poses , make sure the server is running on 8080 port
+        # poses = requests.post("https://localhost:8080/api/mediapipe/pose, data = gray).json()
+        
 
-        #     face_distances = face_recognition.face_distance(face_encodings, faceencodings)
-        #     best_match_index = np.argmin(face_distances)
-
-        #     if not matches[best_match_index]:
-        #         name = best_match_index
-        #     else :
-        #         face_encodings.append(faceencodings)
-        #         #name = len(face_encodings) - 1
 
 
 
@@ -96,7 +83,7 @@ while True:
             cv2.rectangle(frame, (x, y), (x + w+10 , y + h+20), (255,0,0), 2)
     
             cropped_image = frame[y:(y+h), x:(x+w),:] # Slicing to crop the image
-
+            # get face encodings
             encoding_of_face = face_recognition.face_encodings(cropped_image)
 
             best_match_index = -1
