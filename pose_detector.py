@@ -134,12 +134,12 @@ def findPose(image):
 
    # angle between knee and heel
    angle_between_lk_lh = findAngle(l_knee_x, l_knee_y, l_heel_x, l_heel_y)
-   angle_between_rk_rh = findAngle(r_knee_x, r_knee_y, r_heel_x, r_heel_x)
+   angle_between_rk_rh = findAngle(r_knee_x, r_knee_y, r_heel_x, r_heel_y)
 
 
    # and thus our data points are
    data = [distance_between_ls_le, distance_between_rs_re, distance_between_ls_lh, distance_between_rs_rh,
-   distance_between_lh_lk,distance_between_rh_rk, angle_between_ls_le, angle_between_rs_re,angle_between_ls_lh,
+   distance_between_lh_lk,distance_between_rh_rk ,distance_between_lk_lh,distance_between_rk_rh, angle_between_ls_le, angle_between_rs_re,angle_between_ls_lh,
    angle_between_rs_rh,angle_between_lh_lk,angle_between_rh_rk,angle_between_lk_lh,angle_between_rk_rh]
 
    output = model(data)
