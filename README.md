@@ -17,3 +17,6 @@ that was used to train the hidden Markov model.
 
 The pose_detector.py contains the logic for classifying the pose of a human into positive or negative based on the image passed to it.
 It uses mediapipe to get the landmarks of a human and use that data to determine the pose.
+
+The code for the training is present in the train folder.
+Two custom datasets were created for the data loaders, one for the pose classifier and the other for the emotion detection. 
