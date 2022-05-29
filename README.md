@@ -15,3 +15,5 @@ The create_dataset.py was used to generate all of the xls files .
 The read_vals.py was used to read all the generated datasets and create the emission and the state change matrix
 that was used to train the hidden Markov model.
 
+The pose_detector.py contains the logic for classifying the pose of a human into positive or negative based on the image passed to it.
+It uses mediapipe to get the landmarks of a human and use that data to determine the pose.
